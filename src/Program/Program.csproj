@@ -4,6 +4,12 @@
     <ProjectReference Include="..\Library\Library.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Include="Tests\TestClientes.cs" />
+    <Compile Include="Tests\TestRegistroVentas.cs" />
+    <Compile Include="Tests\TestVentas.cs" />
+  </ItemGroup>
+
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>

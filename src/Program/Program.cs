@@ -1,37 +1,43 @@
-﻿namespace Ucu.Poo.RideShare
+﻿using System;
+using System.Collections.Generic;
+using Library;
+using Program.Tests;
+
+namespace ProyectoCRM
 {
-    class Program
+    internal class Program
     {
         static void Main(string[] args)
         {
-            /*
-            En éste método deberas mostrar un ejemplo de funcionamiento de tu programa. A continuación te
-            planteamos un ejemplo de como hacerlo. Esto no significa que te limites a hacer solamente esto, debes pensar
-            en grande!
+            Administrador admin = new Administrador(true, DateTime.Now);
+            Vendedor vendedor = new Vendedor(true, DateTime.Now);
 
-            Usuario pasajero1 = nuevo Pasajero()
-            Usuario pasajero2 = nuevo Pasajero()
-            Usuario pasajero3 = nuevo Pasajero()
-            Usuario conductor1 = nuevo Conductor()
-            Usuario conductorPool1 = nuevo ConductorPool(maxPasajeros = 3)
-            UcuRideShare rideShare = nuevo UcuRideShare()
+            Cliente cliente = new Cliente(
+                "Juan", "Pérez", "099123456", "juan@example.com",
+                "Cliente frecuente", "Masculino",
+                new DateTime(1990, 5, 20), DateTime.Now.AddDays(-10)
+            );
+            cliente.asignarAVendedor(vendedor);
+            Console.WriteLine("Vendedor asignado al cliente.");
 
-            rideShare.Add(conductor1)
-            Se publica en Twitter un nuevo conductor!
+            Etiqueta etiquetaVIP = new Etiqueta("VIP");
+            cliente.agregarEtiqueta(etiquetaVIP);
+            Console.WriteLine($"Etiqueta agregada: {etiquetaVIP.ObtenerNombre()}");
 
-            rideShare.Add(conductorPool1)
-            Se publica en Twitter un nuevo conductor!
+            bool inactivo = cliente.esInactivo("5");
+            Console.WriteLine($"¿Cliente inactivo hace más de 5 días?: {inactivo}");
 
-            rideShare.Add(pasajero1)
-            Se publica en Twitter nuevo registro de pasajero!
+            Venta venta = new Venta(1200.50, DateTime.Now.AddDays(-2));
+            RegistroVenta registro = new RegistroVenta(new List<Venta> { venta });
 
-            rideShare.Add(pasajero2)
-            Se publica en Twitter nuevo registro de pasajero!
+            var ventas = registro.getVentasEntre(DateTime.Now.AddDays(-10), DateTime.Now);
+            Console.WriteLine($"Ventas registradas en los últimos 10 días: {ventas.Count}");
 
-            rideShare.Add(pasajero3)
-            Se publica en Twitter nuevo registro de pasajero!
-
-            */
+            Console.WriteLine("\n=== Ejecución Tests ===");
+            TestClientes.Run();
+            TestVentas.Run();
+            TestRegistroVenta.Run();
+            Console.WriteLine("=== Tests finalizados ===");
         }
     }
 }
