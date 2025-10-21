@@ -26,9 +26,9 @@ namespace Program.Tests
             List<Venta> resultado = registro.getVentasEntre(desde, hasta);
 
             if (resultado.Count == 2)
-                Console.WriteLine("✅ getVentasEntre filtra correctamente por fechas.");
+                Console.WriteLine("getVentasEntre filtra correctamente por fechas.");
             else
-                Console.WriteLine($"❌ Error: se esperaban 2 ventas y se obtuvieron {resultado.Count}.");
+                Console.WriteLine($"Error: se esperaban 2 ventas y se obtuvieron {resultado.Count}.");
 
             Console.WriteLine();
         }
