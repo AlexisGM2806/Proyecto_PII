@@ -14,14 +14,14 @@ namespace Program.Tests
             Venta venta = new Venta(total, fecha);
 
             if (venta.Total == total && venta.Fecha == fecha)
-                Console.WriteLine("✅ Constructor y propiedades funcionan correctamente.");
+                Console.WriteLine("Constructor y propiedades funcionan correctamente.");
             else
-                Console.WriteLine("❌ Error en la inicialización de Venta.");
+                Console.WriteLine("Error en la inicialización de Venta.");
 
             double resultado = venta.getTotales("criterio1", "criterio2");
             Console.WriteLine(resultado == total 
-                ? "✅ getTotales devuelve el total correctamente." 
-                : "❌ Error en getTotales.");
+                ? "getTotales devuelve el total correctamente." 
+                : "Error en getTotales.");
 
             Console.WriteLine();
         }
